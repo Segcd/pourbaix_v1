@@ -10,6 +10,7 @@ pe = pe° - (1/n)*log(red/ox)
 listado = []
 reactantes = []
 productos = []
+ct = input("Coloque el valor de la concentración total: ")
 
 def colocador():
     print("Escribe las componentes una por una de la reacción A + B -> C + D ")
@@ -24,6 +25,7 @@ def colocador():
 
 def limpiador():
     elementos_a_eliminar = []
+    elementos_a_eliminar2 = []
     for elemento in listado:
         if elemento[0].isdigit():
             temp = [elemento]*int(elemento[0])
@@ -34,14 +36,28 @@ def limpiador():
             reactantes.extend(temp2)
             elementos_a_eliminar.append(elemento)
         elif elemento == "->":
+            elementos_a_eliminar.append(elemento)
             break
         else:
             reactantes.append(elemento)
+            elementos_a_eliminar.append(elemento)
+
     for elemento in elementos_a_eliminar:
         listado.remove(elemento)
     for elemento in listado:
-        if elemento[0].isdigit() or elemento[:2].isdigit():
+        if elemento[0].isdigit():
+            temp_2 = [elemento]*int(elemento[0])
+            productos.extend(temp_2)
+            elementos_a_eliminar2.append(elemento)
+        elif elemento[:2].isdigit():
+            temp_2_2 = [elemento]*int(elemento[:2])
+            productos.extend(temp_2_2)
+            elementos_a_eliminar2.append(elemento)
+        else:
             productos.append(elemento)
+            elementos_a_eliminar2.append(elemento)
+    for elemento in elementos_a_eliminar2:
+        listado.remove(elemento)
     print(reactantes)
     print(productos)
 
