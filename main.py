@@ -58,8 +58,17 @@ def limpiador():
             elementos_a_eliminar2.append(elemento)
     for elemento in elementos_a_eliminar2:
         listado.remove(elemento)
-    print(reactantes)
-    print(productos)
+
+def cambiador():
+    for idx, (elem1, elem2) in enumerate(zip(productos, reactantes)):
+        if elem1[1:3] == elem2[1:3]:
+            reactantes[idx] = ct
+            productos[idx] = ct
 
 colocador()
 limpiador()
+cambiador()
+
+
+print(productos)
+print(reactantes)
