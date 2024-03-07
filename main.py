@@ -28,11 +28,13 @@ def limpiador():
     elementos_a_eliminar2 = []
     for elemento in listado:
         if elemento[0].isdigit():
-            temp = [elemento]*int(elemento[0])
+            multiplicador = int(elemento[0])
+            temp = [elemento[1:]]*multiplicador
             reactantes.extend(temp)
             elementos_a_eliminar.append(elemento)
         elif elemento[:2].isdigit():
-            temp2 = [elemento]*int(elemento[:2])
+            multiplicador = int(elemento[:2])
+            temp2 = [elemento[2:]]*multiplicador
             reactantes.extend(temp2)
             elementos_a_eliminar.append(elemento)
         elif elemento == "->":
@@ -44,13 +46,16 @@ def limpiador():
 
     for elemento in elementos_a_eliminar:
         listado.remove(elemento)
+
     for elemento in listado:
         if elemento[0].isdigit():
-            temp_2 = [elemento]*int(elemento[0])
+            multiplicador = int(elemento[0])
+            temp_2 = [elemento[1:]]*multiplicador
             productos.extend(temp_2)
             elementos_a_eliminar2.append(elemento)
         elif elemento[:2].isdigit():
-            temp_2_2 = [elemento]*int(elemento[:2])
+            multiplicador = int(elemento[0])
+            temp_2_2 = [elemento[1:]]*multiplicador
             productos.extend(temp_2_2)
             elementos_a_eliminar2.append(elemento)
         else:
@@ -59,16 +64,41 @@ def limpiador():
     for elemento in elementos_a_eliminar2:
         listado.remove(elemento)
 
-def cambiador():
-    for idx, (elem1, elem2) in enumerate(zip(productos, reactantes)):
-        if elem1[1:3] == elem2[1:3]:
-            reactantes[idx] = ct
-            productos[idx] = ct
+
 
 colocador()
 limpiador()
-cambiador()
 
+reactantes_bas=[]
+productos_bas=[]
 
-print(productos)
+for elemento in reactantes:
+    if elemento == "H":
+        pass
+    elif elemento == "e":
+        pass
+    elif elemento == ct:
+        break
+    else:
+        reactantes_bas.append(elemento)
+        reactantes.append(ct)
+
+for elemento in reactantes_bas:
+        reactantes.remove(elemento)    
+
+for elemento in productos:
+    if elemento == "H":
+        pass
+    elif elemento == "e":
+        pass
+    elif elemento == ct:
+        break
+    else:
+        productos_bas.append(elemento)
+        productos.append(ct)
+
+for elemento in productos_bas:
+        productos.remove(elemento)       
+
 print(reactantes)
+print(productos)
