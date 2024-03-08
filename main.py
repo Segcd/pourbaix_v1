@@ -120,6 +120,8 @@ productos_v2 = convertir_lista(productos)
 #for elemento in reactantes_v2:
     #if elemento == "H":
 
+#Prueba de mensaje
+
 
 print(reactantes_v2)
 print(productos_v2)
