@@ -7,10 +7,14 @@ pe = pe° - (1/n)*log(red/ox)
 #E_est = float(input("Coloque el valor del potencial estandar: "))
 #pe_est = E_est/0.059
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 listado = []
 reactantes = []
 productos = []
 ct = input("Coloque el valor de la concentración total: ")
+pe_est = input("Coloque el valor del potencial estandar: ")
 
 def colocador():
     print("Escribe las componentes una por una de la reacción A + B -> C + D ")
@@ -100,5 +104,24 @@ for elemento in productos:
 for elemento in productos_bas:
         productos.remove(elemento)       
 
-print(reactantes)
-print(productos)
+
+def convertir_lista(lista):
+  nueva_lista = []
+  for elemento in lista:
+    try:
+      nueva_lista.append(float(elemento))
+    except ValueError:
+      nueva_lista.append(elemento)
+  return nueva_lista
+
+reactantes_v2 = convertir_lista(reactantes)
+productos_v2 = convertir_lista(productos)
+
+#for elemento in reactantes_v2:
+    #if elemento == "H":
+
+
+print(reactantes_v2)
+print(productos_v2)
+
+#y = pe_est - np.log10(pro/reac)
