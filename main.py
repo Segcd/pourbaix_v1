@@ -10,6 +10,7 @@ pe = pe° - (1/n)*log(red/ox)
 import matplotlib.pyplot as plt
 import numpy as np
 
+H = [i for i in range(0,1E-14)]
 listado = []
 reactantes = []
 productos = []
@@ -117,13 +118,18 @@ def convertir_lista(lista):
 reactantes_v2 = convertir_lista(reactantes)
 productos_v2 = convertir_lista(productos)
 
-#for elemento in reactantes_v2:
-    #if elemento == "H":
-
-#Prueba de mensaje
-
-
 print(reactantes_v2)
 print(productos_v2)
 
-#y = pe_est - np.log10(pro/reac)
+reac_v2_bas =[]
+
+for i in reactantes_v2:
+    if i == "H":
+        reac_v2_bas.append(i)
+        reactantes_v2.append(H)
+    elif i == "e":
+        reac_v2_bas.append(i)
+        reactantes_v2.append(1)
+
+
+y = pe_est - np.log10(/)
