@@ -10,7 +10,7 @@ pe = pe° - (1/n)*log(red/ox)
 import matplotlib.pyplot as plt
 import numpy as np
 
-H = [i for i in range(0,1E-14)]
+H = np.linspace(0, 1e-14, 100)
 listado = []
 reactantes = []
 productos = []
@@ -127,9 +127,3 @@ for i in reactantes_v2:
     if i == "H":
         reac_v2_bas.append(i)
         reactantes_v2.append(H)
-    elif i == "e":
-        reac_v2_bas.append(i)
-        reactantes_v2.append(1)
-
-
-y = pe_est - np.log10(/)
